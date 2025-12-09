@@ -1,5 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Gauge, Ruler, Weight } from 'lucide-react';
+import LazyImage from './LazyImage';
 
 const machines = [
   {
@@ -91,7 +92,7 @@ const Machinery = () => {
 
               {/* Image container */}
               <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-muted/50 to-background">
-                <img
+                <LazyImage
                   src={machine.image}
                   alt={machine.name}
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"

@@ -5,9 +5,12 @@ import About from '@/components/About';
 import Services from '@/components/Services';
 import Machinery from '@/components/Machinery';
 import Projects from '@/components/Projects';
+import Reviews from '@/components/Reviews';
 import Contact from '@/components/Contact';
 import Partners from '@/components/Partners';
+import Apprenticeship from '@/components/Apprenticeship';
 import Footer from '@/components/Footer';
+import CookieConsent from '@/components/CookieConsent';
 
 const Index = () => {
   return (
@@ -21,9 +24,12 @@ const Index = () => {
           <Services />
           <Machinery />
           <Projects />
+          <Reviews />
+          <Apprenticeship />
           <Contact />
         </main>
         <Footer />
+        <CookieConsent />
       </div>
     </LanguageProvider>
   );

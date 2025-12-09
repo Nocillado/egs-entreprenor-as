@@ -10,6 +10,7 @@ const heroImages = [
 const Hero = () => {
   const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [loadedImages, setLoadedImages] = useState<boolean[]>(new Array(heroImages.length).fill(false));
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -18,14 +19,36 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Preload images
+  useEffect(() => {
+    heroImages.forEach((src, index) => {
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        setLoadedImages((prev) => {
+          const newState = [...prev];
+          newState[index] = true;
+          return newState;
+        });
+      };
+    });
+  }, []);
+
   return (
     <section id="home" className="relative min-h-screen overflow-hidden">
+      {/* Skeleton background */}
+      {!loadedImages[currentIndex] && (
+        <div className="absolute inset-0 bg-muted animate-pulse">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent skeleton-shimmer" />
+        </div>
+      )}
+
       {/* Background Images with zoom animation */}
       {heroImages.map((image, index) => (
         <div
           key={index}
           className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${
-            index === currentIndex ? 'opacity-100' : 'opacity-0'
+            index === currentIndex && loadedImages[index] ? 'opacity-100' : 'opacity-0'
           }`}
           style={{
             backgroundImage: `url('${image}')`,
@@ -38,6 +61,13 @@ const Hero = () => {
         @keyframes slowZoom {
           0% { transform: scale(1); }
           100% { transform: scale(1.1); }
+        }
+        @keyframes shimmer {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+        .skeleton-shimmer {
+          animation: shimmer 1.5s infinite;
         }
       `}</style>
 

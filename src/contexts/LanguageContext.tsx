@@ -30,7 +30,10 @@ const translations: Translations = {
   aboutText1: { no: 'EGS Entreprenør AS er en fleksibel og kvalitetsbevisst entreprenør lokalisert i Hallingdal, med rekkevidde over hele Østlandet. Vi legger inn mye arbeid for å være en pålitelig og profesjonell aktør på markedet gjennom grundig utførsel av HMS, kvalitetssikring og dialog med kunden.', en: 'EGS Entreprenør AS is a flexible and quality-conscious contractor located in Hallingdal, with reach throughout Eastern Norway. We put in a lot of work to be a reliable and professional player in the market through thorough execution of HSE, quality assurance and dialogue with the customer.' },
   aboutText2: { no: 'Til privatkunden tilbys alt fra a - å vedrørende grunnarbeider, betong, landskapsutforming og murerarbeider. På dette området er vi totalentreprenør.', en: 'For private customers, we offer everything from A to Z regarding groundwork, concrete, landscaping and masonry. In this area, we are a general contractor.' },
   aboutText3: { no: 'Vi har i dag en stor og moderne maskinpark for å dekke de behov og ønsker kunden måtte ha, og vi har ca. 20 ansatte med bred kompetanse og utdanning innen ovennevnte arbeidsområder.', en: 'Today we have a large and modern fleet of machinery to meet the needs and wishes of the customer, and we have about 20 employees with broad expertise and education in the above-mentioned work areas.' },
-  
+  aboutCertifications: { no: 'Godkjenninger', en: 'Certifications' },
+  aboutTrainingCompany: { no: 'Godkjent Lærebedrift', en: 'Approved Training Company' },
+  aboutOKCompany: { no: 'OK Anleggsbedrift', en: 'OK Construction Company' },
+
   // Services
   servicesTitle: { no: 'Tjenester', en: 'Services' },
   servicesIntro: { no: 'Vi utfører alle typer grunnarbeid for nyanlegg og ombygging, samt terrengendringer, betongarbeider, grøftearbeid og anleggelse av vei, vann og avløp.', en: 'We perform all types of groundwork for new construction and renovation, as well as terrain changes, concrete work, trenching and construction of roads, water and sewage.' },
@@ -89,6 +92,38 @@ const translations: Translations = {
   partnerNBFDesc: { no: 'Stolt sponsor av Rallycross Junior og Fair Race Stipend for unge motorsporttalenter.', en: 'Proud sponsor of Rallycross Junior and Fair Race Scholarship for young motorsport talents.' },
   readMore: { no: 'Les mer', en: 'Read More' },
 
+  // Apprenticeship
+  apprenticeLabel: { no: 'Lærebedrift', en: 'Training Company' },
+  apprenticeTitle: { no: 'Godkjent Lærebedrift', en: 'Approved Training Company' },
+  apprenticeSubtitle: { no: 'EGS Entreprenør AS er en godkjent lærebedrift som tilbyr lærlingplasser innen anleggsfagene. Vi er stolte av å bidra til utviklingen av fremtidens fagarbeidere.', en: 'EGS Entreprenør AS is an approved training company offering apprenticeships in construction trades. We are proud to contribute to the development of future skilled workers.' },
+  apprenticeFeature1Title: { no: 'Praktisk Opplæring', en: 'Practical Training' },
+  apprenticeFeature1Desc: { no: 'Lærlinger får hands-on erfaring med moderne maskiner og utstyr på virkelige prosjekter.', en: 'Apprentices gain hands-on experience with modern machinery and equipment on real projects.' },
+  apprenticeFeature2Title: { no: 'Erfarne Veiledere', en: 'Experienced Mentors' },
+  apprenticeFeature2Desc: { no: 'Våre erfarne fagarbeidere veileder og støtter lærlinger gjennom hele læretiden.', en: 'Our experienced skilled workers guide and support apprentices throughout their training.' },
+  apprenticeFeature3Title: { no: 'Karrieremuligheter', en: 'Career Opportunities' },
+  apprenticeFeature3Desc: { no: 'Mange av våre lærlinger fortsetter som fast ansatte etter fullført fagbrev.', en: 'Many of our apprentices continue as permanent employees after completing their certification.' },
+  apprenticeLinksTitle: { no: 'Offisielle Registreringer', en: 'Official Registrations' },
+  apprenticeUtdanningDesc: { no: 'Se vår godkjenning som lærebedrift og tilgjengelige lærlingfag på Utdanning.no', en: 'View our approval as a training company and available apprenticeship trades on Utdanning.no' },
+  apprenticeVilbliDesc: { no: 'Finn informasjon om våre lærlingplasser og kontaktdetaljer på Vilbli.no', en: 'Find information about our apprenticeship positions and contact details on Vilbli.no' },
+  apprenticeCTATitle: { no: 'Interessert i lærlingplass?', en: 'Interested in an apprenticeship?' },
+  apprenticeCTADesc: { no: 'Ta kontakt med oss for å høre om ledige lærlingplasser og muligheter hos EGS Entreprenør AS.', en: 'Contact us to learn about available apprenticeship positions and opportunities at EGS Entreprenør AS.' },
+
+  // Reviews
+  reviewsLabel: { no: 'Anmeldelser', en: 'Reviews' },
+  reviewsTitle: { no: 'Hva Kundene Sier', en: 'What Our Customers Say' },
+  reviewsSubtitle: { no: '5.0 basert på Facebook-anmeldelser', en: '5.0 based on Facebook reviews' },
+  review1Name: { no: 'Roger', en: 'Roger' },
+  review1Text: { no: 'Knall bra service og hyggelige folk', en: 'Excellent service and friendly people' },
+  review2Name: { no: 'Dag', en: 'Dag' },
+  review2Text: { no: 'En helt fantastisk betjening', en: 'Absolutely fantastic service' },
+  review3Name: { no: 'Stein', en: 'Stein' },
+  review3Text: { no: 'Hyggelige og kunnskapsrike folk skaffer det meste', en: 'Friendly and knowledgeable people who can get most things' },
+  review4Name: { no: 'Runar', en: 'Runar' },
+  review4Text: { no: 'Flinke og hyggelige folk', en: 'Skilled and friendly people' },
+  review5Name: { no: 'Hans', en: 'Hans' },
+  review5Text: { no: 'Veldig bra butikk. God service. Hyggelige folk', en: 'Very good business. Good service. Friendly people' },
+  reviewsCTA: { no: 'Se alle anmeldelser på Facebook', en: 'See all reviews on Facebook' },
+
   // Footer
   footerQuote: { no: 'Vi har god kompetanse, arbeidsstolthet og ansvarsbevissthet. Det viktigste for oss er å få til gode prosjekter med fornøyde kunder og et solid resultat.', en: 'We have good expertise, work pride and sense of responsibility. The most important thing for us is to achieve good projects with satisfied customers and solid results.' },
   followUs: { no: 'Følg oss', en: 'Follow Us' },
@@ -98,6 +133,13 @@ const translations: Translations = {
 
   // Language
   language: { no: 'NO', en: 'EN' },
+
+  // Cookies & Privacy
+  cookieText: { no: 'Vi bruker informasjonskapsler for å forbedre din opplevelse på nettstedet vårt.', en: 'We use cookies to improve your experience on our website.' },
+  cookieAccept: { no: 'Godta', en: 'Accept' },
+  cookieDecline: { no: 'Avslå', en: 'Decline' },
+  cookieSettings: { no: 'Informasjonskapsler', en: 'Cookie Settings' },
+  privacyPolicy: { no: 'Personvern', en: 'Privacy Policy' },
 };
 
 interface LanguageContextType {

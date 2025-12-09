@@ -1,5 +1,49 @@
+import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ExternalLink } from 'lucide-react';
+
+interface PartnerLogoProps {
+  src: string;
+  alt: string;
+  className?: string;
+  fallback: string;
+}
+
+const PartnerLogo = ({ src, alt, className = '', fallback }: PartnerLogoProps) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  return (
+    <div className="relative w-full h-full">
+      {!isLoaded && !hasError && (
+        <div className="absolute inset-0 bg-muted/50 animate-pulse rounded">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skeleton-shimmer" />
+        </div>
+      )}
+      {hasError ? (
+        <span className="text-primary font-heading text-sm">{fallback}</span>
+      ) : (
+        <img
+          src={src}
+          alt={alt}
+          className={`transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'} ${className}`}
+          onLoad={() => setIsLoaded(true)}
+          onError={() => setHasError(true)}
+          loading="lazy"
+        />
+      )}
+      <style>{`
+        @keyframes shimmer {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+        .skeleton-shimmer {
+          animation: shimmer 1.5s infinite;
+        }
+      `}</style>
+    </div>
+  );
+};
 
 const Partners = () => {
   const { t } = useLanguage();
@@ -32,7 +76,7 @@ const Partners = () => {
     },
     {
       name: 'Norges Bilsportforbund',
-      logo: 'https://bilsport.no/wp-content/uploads/2020/04/NBF-logo-300x300.png',
+      logo: '/Logo/Bilsport.png',
       fallback: 'NBF',
       url: 'https://bilsport.no/rallycross-junior-og-fair-race-stipend/',
       bgDark: false,
@@ -60,14 +104,11 @@ const Partners = () => {
               {/* Logo */}
               <div className="flex-shrink-0">
                 <div className="w-28 h-28 rounded-lg flex items-center justify-center p-4 bg-zinc-100">
-                  <img
+                  <PartnerLogo
                     src={featuredPartner.logo}
                     alt={featuredPartner.name}
                     className="w-full h-full object-contain"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                      e.currentTarget.parentElement!.innerHTML = `<span class="text-primary font-heading text-2xl">${featuredPartner.fallback}</span>`;
-                    }}
+                    fallback={featuredPartner.fallback}
                   />
                 </div>
               </div>
@@ -105,14 +146,11 @@ const Partners = () => {
               className="group"
             >
               <div className={`w-36 h-24 rounded-lg flex items-center justify-center p-4 transition-all duration-300 group-hover:scale-110 ${partner.bgDark ? 'bg-zinc-800' : 'bg-white'}`}>
-                <img
+                <PartnerLogo
                   src={partner.logo}
                   alt={partner.name}
                   className={`w-full h-full object-contain opacity-60 group-hover:opacity-100 transition-opacity ${partner.invert ? 'invert' : ''}`}
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    e.currentTarget.parentElement!.innerHTML = `<span class="text-primary font-heading text-sm">${partner.fallback}</span>`;
-                  }}
+                  fallback={partner.fallback}
                 />
               </div>
             </a>

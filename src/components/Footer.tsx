@@ -117,10 +117,25 @@ const Footer = () => {
       {/* Copyright */}
       <div className="py-6 border-t border-border">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-muted-foreground">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
             <p>
               © {new Date().getFullYear()} EGS Entreprenør AS. {t('allRightsReserved')}
             </p>
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => {
+                  localStorage.removeItem('cookieConsent');
+                  window.location.reload();
+                }}
+                className="hover:text-primary transition-colors"
+              >
+                {t('cookieSettings')}
+              </button>
+              <span className="text-border">|</span>
+              <a href="#privacy" className="hover:text-primary transition-colors">
+                {t('privacyPolicy')}
+              </a>
+            </div>
           </div>
         </div>
       </div>

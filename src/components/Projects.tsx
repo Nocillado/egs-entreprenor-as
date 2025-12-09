@@ -1,5 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { MapPin, Calendar, ArrowUpRight } from 'lucide-react';
+import LazyImage from './LazyImage';
 
 const projects = [
   {
@@ -81,13 +82,13 @@ const Projects = () => {
 
               {/* Image */}
               <div className="relative aspect-[16/9] overflow-hidden">
-                <img
+                <LazyImage
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent pointer-events-none" />
 
                 {/* Content overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
@@ -135,13 +136,13 @@ const Projects = () => {
             >
               {/* Image */}
               <div className="relative aspect-[4/3] overflow-hidden">
-                <img
+                <LazyImage
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
 
                 {/* Quick info on image */}
                 <div className="absolute top-3 left-3 flex items-center gap-1.5 text-white/80">

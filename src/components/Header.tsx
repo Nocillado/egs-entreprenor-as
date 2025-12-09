@@ -54,21 +54,40 @@ const Header = () => {
           </nav>
 
           {/* Right side - Language toggle */}
-          <div className="hidden lg:flex items-center gap-4">
-            {/* Language toggle */}
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-2 px-3 py-2 bg-primary text-primary-foreground rounded-sm hover:bg-primary/90 transition-colors"
-            >
-              <img
-                src={language === 'no' ? '/Translate/No.webp' : '/Translate/UK.png'}
-                alt={language === 'no' ? 'Norwegian' : 'English'}
-                className="w-5 h-4 object-cover rounded-sm"
-              />
-              <span className="font-semibold text-sm uppercase">
-                {language === 'no' ? 'NO' : 'EN'}
-              </span>
-            </button>
+          <div className="hidden lg:flex items-center">
+            {/* Language toggle - Both flags visible */}
+            <div className="flex items-center bg-muted/50 border border-border rounded-sm overflow-hidden">
+              <button
+                onClick={() => setLanguage('no')}
+                className={`flex items-center gap-2 px-3 py-2 transition-all ${
+                  language === 'no'
+                    ? 'bg-primary text-primary-foreground'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                }`}
+              >
+                <img
+                  src="/Translate/No.webp"
+                  alt="Norwegian"
+                  className="w-5 h-4 object-cover rounded-sm"
+                />
+                <span className="font-semibold text-xs uppercase">NOR</span>
+              </button>
+              <button
+                onClick={() => setLanguage('en')}
+                className={`flex items-center gap-2 px-3 py-2 transition-all ${
+                  language === 'en'
+                    ? 'bg-primary text-primary-foreground'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                }`}
+              >
+                <img
+                  src="/Translate/UK.png"
+                  alt="English"
+                  className="w-5 h-4 object-cover rounded-sm"
+                />
+                <span className="font-semibold text-xs uppercase">ENG</span>
+              </button>
+            </div>
           </div>
 
           {/* Mobile menu button - on the left */}
@@ -121,21 +140,40 @@ const Header = () => {
                 </div>
               </div>
 
-              {/* Language toggle */}
-              <div className="flex items-center gap-4 pt-4 border-t border-border">
-                <button
-                  onClick={toggleLanguage}
-                  className="flex items-center gap-2 px-3 py-2 bg-primary text-primary-foreground rounded-sm"
-                >
-                  <img
-                    src={language === 'no' ? '/Translate/No.webp' : '/Translate/UK.png'}
-                    alt={language === 'no' ? 'Norwegian' : 'English'}
-                    className="w-5 h-4 object-cover rounded-sm"
-                  />
-                  <span className="font-semibold text-sm uppercase">
-                    {language === 'no' ? 'NO' : 'EN'}
-                  </span>
-                </button>
+              {/* Language toggle - Both flags visible */}
+              <div className="flex items-center pt-4 border-t border-border">
+                <div className="flex items-center bg-muted/50 border border-border rounded-sm overflow-hidden">
+                  <button
+                    onClick={() => setLanguage('no')}
+                    className={`flex items-center gap-2 px-3 py-2 transition-all ${
+                      language === 'no'
+                        ? 'bg-primary text-primary-foreground'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                    }`}
+                  >
+                    <img
+                      src="/Translate/No.webp"
+                      alt="Norwegian"
+                      className="w-5 h-4 object-cover rounded-sm"
+                    />
+                    <span className="font-semibold text-xs uppercase">NOR</span>
+                  </button>
+                  <button
+                    onClick={() => setLanguage('en')}
+                    className={`flex items-center gap-2 px-3 py-2 transition-all ${
+                      language === 'en'
+                        ? 'bg-primary text-primary-foreground'
+                        : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                    }`}
+                  >
+                    <img
+                      src="/Translate/UK.png"
+                      alt="English"
+                      className="w-5 h-4 object-cover rounded-sm"
+                    />
+                    <span className="font-semibold text-xs uppercase">ENG</span>
+                  </button>
+                </div>
               </div>
             </nav>
           </div>
