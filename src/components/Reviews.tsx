@@ -93,7 +93,7 @@ const Reviews = () => {
         {/* Horizontal Scroll Container */}
         <div
           ref={scrollRef}
-          className="flex gap-0 md:gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0"
+          className="flex gap-2 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0"
           style={{
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
