@@ -56,36 +56,33 @@ const Header = () => {
           {/* Right side - Language toggle */}
           <div className="hidden lg:flex items-center">
             {/* Language toggle - Both flags visible */}
-            <div className="flex items-center bg-muted/50 border border-border rounded-sm overflow-hidden">
+            <div className="flex items-center gap-2">
               <button
                 onClick={() => setLanguage('no')}
-                className={`flex items-center gap-2 px-3 py-2 transition-all ${
-                  language === 'no'
-                    ? 'bg-primary text-primary-foreground'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-                }`}
+                className="flex items-center gap-2 transition-colors"
               >
                 <img
                   src="/Translate/No.webp"
                   alt="Norwegian"
-                  className="w-5 h-4 object-cover rounded-sm"
+                  className="w-5 h-4 object-cover"
                 />
-                <span className="font-semibold text-xs uppercase">NOR</span>
+                <span className={`font-semibold text-xs uppercase ${
+                  language === 'no' ? 'text-primary' : 'text-foreground hover:text-primary'
+                }`}>NOR</span>
               </button>
+              <span className="text-foreground">/</span>
               <button
                 onClick={() => setLanguage('en')}
-                className={`flex items-center gap-2 px-3 py-2 transition-all ${
-                  language === 'en'
-                    ? 'bg-primary text-primary-foreground'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-                }`}
+                className="flex items-center gap-2 transition-colors"
               >
                 <img
                   src="/Translate/UK.png"
                   alt="English"
-                  className="w-5 h-4 object-cover rounded-sm"
+                  className="w-5 h-4 object-cover"
                 />
-                <span className="font-semibold text-xs uppercase">ENG</span>
+                <span className={`font-semibold text-xs uppercase ${
+                  language === 'en' ? 'text-primary' : 'text-foreground hover:text-primary'
+                }`}>ENG</span>
               </button>
             </div>
           </div>
@@ -142,36 +139,33 @@ const Header = () => {
 
               {/* Language toggle - Both flags visible */}
               <div className="flex items-center pt-4 border-t border-border">
-                <div className="flex items-center bg-muted/50 border border-border rounded-sm overflow-hidden">
+                <div className="flex items-center gap-2">
                   <button
                     onClick={() => setLanguage('no')}
-                    className={`flex items-center gap-2 px-3 py-2 transition-all ${
-                      language === 'no'
-                        ? 'bg-primary text-primary-foreground'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-                    }`}
+                    className="flex items-center gap-2 transition-colors"
                   >
                     <img
                       src="/Translate/No.webp"
                       alt="Norwegian"
-                      className="w-5 h-4 object-cover rounded-sm"
+                      className="w-5 h-4 object-cover"
                     />
-                    <span className="font-semibold text-xs uppercase">NOR</span>
+                    <span className={`font-semibold text-xs uppercase ${
+                      language === 'no' ? 'text-primary' : 'text-foreground hover:text-primary'
+                    }`}>NOR</span>
                   </button>
+                  <span className="text-foreground">/</span>
                   <button
                     onClick={() => setLanguage('en')}
-                    className={`flex items-center gap-2 px-3 py-2 transition-all ${
-                      language === 'en'
-                        ? 'bg-primary text-primary-foreground'
-                        : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-                    }`}
+                    className="flex items-center gap-2 transition-colors"
                   >
                     <img
                       src="/Translate/UK.png"
                       alt="English"
-                      className="w-5 h-4 object-cover rounded-sm"
+                      className="w-5 h-4 object-cover"
                     />
-                    <span className="font-semibold text-xs uppercase">ENG</span>
+                    <span className={`font-semibold text-xs uppercase ${
+                      language === 'en' ? 'text-primary' : 'text-foreground hover:text-primary'
+                    }`}>ENG</span>
                   </button>
                 </div>
               </div>
