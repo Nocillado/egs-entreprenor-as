@@ -102,7 +102,7 @@ const Reviews = () => {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-full md:w-[300px] snap-center md:snap-start"
+              className="flex-shrink-0 w-[95%] md:w-[300px] snap-center md:snap-start"
             >
               <div className="h-full min-h-[280px] bg-gradient-to-br from-primary/10 via-background to-primary/5 border border-border p-6 relative group hover:border-primary transition-all duration-300 flex flex-col">
                 {/* Gradient Accent */}
@@ -143,7 +143,7 @@ const Reviews = () => {
           ))}
 
           {/* View All Card */}
-          <div className="flex-shrink-0 w-full md:w-[300px] snap-center md:snap-start">
+          <div className="flex-shrink-0 w-[95%] md:w-[300px] snap-center md:snap-start">
             <a
               href="https://www.facebook.com/egsentreprenor/reviews"
               target="_blank"
