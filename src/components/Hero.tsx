@@ -1,60 +1,125 @@
+import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Button } from '@/components/ui/button';
-import { Mail, Phone, MapPin, Building } from 'lucide-react';
+
+const heroImages = [
+  '/Hero Image/1.jpg',
+  '/Hero Image/2.jpg',
+  '/Hero Image/3.jpg',
+];
 
 const Hero = () => {
   const { t } = useLanguage();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % heroImages.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center pt-20">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    <section id="home" className="relative min-h-screen overflow-hidden">
+      {/* Background Images with zoom animation */}
+      {heroImages.map((image, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${
+            index === currentIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{
+            backgroundImage: `url('${image}')`,
+            animation: index === currentIndex ? 'slowZoom 6s ease-out forwards' : 'none',
+          }}
+        />
+      ))}
+
+      <style>{`
+        @keyframes slowZoom {
+          0% { transform: scale(1); }
+          100% { transform: scale(1.1); }
+        }
+      `}</style>
+
+      {/* Dark overlay for mobile */}
+      <div className="absolute inset-0 bg-background/80 z-10 lg:hidden" />
+
+      {/* Diagonal dark overlay for desktop */}
+      <div
+        className="absolute inset-y-0 left-0 w-[55%] bg-background/95 z-10 hidden lg:block"
         style={{
-          backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?q=80&w=2070&auto=format&fit=crop')`,
+          clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0 100%)',
         }}
       />
-      
+
+      {/* Secondary diagonal line accent */}
+      <div
+        className="absolute inset-y-0 left-0 w-[57%] bg-primary/20 z-[5] hidden lg:block"
+        style={{
+          clipPath: 'polygon(0 0, 100% 0, 87% 100%, 0 100%)',
+        }}
+      />
+
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
-        <h1 className="font-heading font-bold text-4xl md:text-6xl lg:text-7xl text-foreground mb-6 animate-fade-in">
-          {t('heroTitle')}
-        </h1>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-          {t('heroSubtitle')}
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8">
-            <a href="#contact">{t('contactUs')}</a>
-          </Button>
-          <Button size="lg" variant="outline" className="border-foreground/30 text-foreground hover:bg-foreground/10 font-semibold px-8">
-            <a href="#services">{t('ourServices')}</a>
-          </Button>
+      <div className="relative z-20 min-h-screen flex items-center pt-20 lg:pt-0">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl">
+            {/* Accent dots */}
+            <div className="flex items-center gap-1 mb-4 md:mb-6">
+              <div className="w-1 h-6 md:h-8 bg-primary" />
+              <div className="flex gap-1">
+                {[...Array(6)].map((_, i) => (
+                  <div key={i} className="w-1 md:w-1.5 h-1 md:h-1.5 bg-primary" />
+                ))}
+              </div>
+            </div>
+
+            {/* Title */}
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-foreground uppercase tracking-wide mb-1 md:mb-2 animate-fade-in">
+              {t('heroTitle')}
+            </h1>
+
+            {/* Highlighted word */}
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-primary uppercase tracking-wide mb-6 md:mb-8 animate-fade-in">
+              {t('heroHighlight')}
+            </h2>
+
+            {/* Description */}
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-lg mb-8 md:mb-10 leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              {t('heroSubtitle')}
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              <a
+                href="#contact"
+                className="btn-primary inline-flex items-center justify-center text-sm sm:text-base px-6 py-3 sm:px-8 sm:py-4"
+              >
+                {t('contactUs')}
+              </a>
+              <a
+                href="#services"
+                className="btn-outline inline-flex items-center justify-center text-sm sm:text-base px-6 py-3 sm:px-8 sm:py-4"
+              >
+                {t('ourServices')}
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Bottom info bar */}
-      <div className="absolute bottom-0 left-0 right-0 bg-background/90 backdrop-blur-sm py-4 border-t border-border">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-6 md:gap-12 text-sm text-muted-foreground">
-            <a href="mailto:roar@egsas.no" className="flex items-center gap-2 hover:text-primary transition-colors">
-              <Mail className="w-4 h-4" />
-              roar@egsas.no
-            </a>
-            <a href="tel:+4797145022" className="flex items-center gap-2 hover:text-primary transition-colors">
-              <Phone className="w-4 h-4" />
-              971 45 022
-            </a>
-            <span className="flex items-center gap-2">
-              <MapPin className="w-4 h-4" />
-              Sando, 3570 ÅL
-            </span>
-            <span className="flex items-center gap-2">
-              <Building className="w-4 h-4" />
-              Orgnr 994 267 124
-            </span>
-          </div>
-        </div>
+      {/* Image indicators */}
+      <div className="absolute bottom-8 left-8 flex gap-2 z-20">
+        {heroImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`h-1 transition-all duration-300 ${
+              index === currentIndex ? 'w-8 bg-primary' : 'w-4 bg-white/30 hover:bg-white/50'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   );

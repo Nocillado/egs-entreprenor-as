@@ -1,70 +1,172 @@
 import { useLanguage } from '@/contexts/LanguageContext';
+import { MapPin, Calendar, ArrowUpRight } from 'lucide-react';
+
+const projects = [
+  {
+    title: 'Spro Havn Rekkehus',
+    descKey: 'projectDesc1',
+    location: 'Fagerstrand',
+    year: '2022-2025',
+    image: '/Projects/1.jpg',
+    featured: true,
+  },
+  {
+    title: 'Lyttestasjonen Kløfta',
+    descKey: 'projectDesc2',
+    location: 'Kløfta',
+    year: '2025-2026',
+    image: '/Projects/2.jpg',
+  },
+  {
+    title: 'Sæterkrysset',
+    descKey: 'projectDesc3',
+    location: 'Oslo',
+    year: '2025',
+    image: '/Projects/3.jpg',
+  },
+  {
+    title: 'Storåsveien 31D',
+    descKey: 'projectDesc4',
+    location: 'Oslo',
+    year: '2024',
+    image: '/Projects/4.jpg',
+  },
+  {
+    title: 'Ringveien 3',
+    descKey: 'projectDesc5',
+    location: 'Nesodden',
+    year: '2019-2024',
+    image: '/Projects/5.jpg',
+    featured: true,
+  },
+  {
+    title: 'Østre vei 60',
+    descKey: 'projectDesc6',
+    location: 'Nesøya',
+    year: '2025',
+    image: '/Projects/6.jpg',
+  },
+];
 
 const Projects = () => {
   const { t } = useLanguage();
 
-  const projects = [
-    {
-      title: 'Spro Havn',
-      descKey: 'projectDesc1',
-      image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=800&auto=format&fit=crop',
-    },
-    {
-      title: 'Highland Lodge',
-      descKey: 'projectDesc2',
-      image: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800&auto=format&fit=crop',
-    },
-    {
-      title: 'Kikut Alpin Lodge',
-      descKey: 'projectDesc3',
-      image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop',
-    },
-    {
-      title: 'Kikut Chalet',
-      descKey: 'projectDesc4',
-      image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800&auto=format&fit=crop',
-    },
-    {
-      title: 'Geilo 770',
-      descKey: 'projectDesc5',
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop',
-    },
-    {
-      title: 'Diverse prosjekt',
-      descKey: 'projectDesc6',
-      image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop',
-    },
-  ];
+  // Separate featured and regular projects
+  const featuredProjects = projects.filter((p) => p.featured);
+  const regularProjects = projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="py-24 bg-background">
+    <section id="projects" className="py-24 bg-card">
       <div className="container mx-auto px-4">
-        <h2 className="font-heading font-bold text-3xl md:text-4xl text-center text-foreground">
-          {t('projectsTitle')}
-        </h2>
-        <div className="section-divider" />
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        {/* Header */}
+        <div className="text-center mb-16">
+          <span className="section-label">{t('projects')}</span>
+          <h2 className="section-title mb-4">{t('projectsTitle')}</h2>
+          <div className="accent-line mx-auto" />
+        </div>
+
+        {/* Featured Projects - Large Cards */}
+        <div className="grid md:grid-cols-2 gap-6 mb-6">
+          {featuredProjects.map((project, index) => (
             <div
               key={index}
-              className="bg-card rounded-lg overflow-hidden card-hover group"
+              className="group relative overflow-hidden border border-border hover:border-primary transition-all duration-500 bg-background"
             >
-              <div className="aspect-video overflow-hidden">
+              {/* Featured badge */}
+              <div className="absolute top-4 left-4 z-20 px-3 py-1 bg-primary">
+                <span className="text-xs text-primary-foreground uppercase tracking-wider font-semibold">
+                  Featured
+                </span>
+              </div>
+
+              {/* Image */}
+              <div className="relative aspect-[16/9] overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
+
+                {/* Content overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+                  {/* Meta info */}
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className="flex items-center gap-1.5 text-primary">
+                      <MapPin className="w-4 h-4" />
+                      <span className="text-sm font-medium">{project.location}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 text-white/60">
+                      <Calendar className="w-4 h-4" />
+                      <span className="text-sm">{project.year}</span>
+                    </div>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="font-heading text-2xl lg:text-3xl text-white uppercase tracking-wide mb-3 group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-white/70 text-sm lg:text-base leading-relaxed max-w-xl">
+                    {t(project.descKey)}
+                  </p>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="font-heading font-bold text-primary text-lg underline mb-3">
+
+              {/* Hover arrow */}
+              <div className="absolute top-4 right-4 w-12 h-12 border border-white/20 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-300">
+                <ArrowUpRight className="w-5 h-5 text-white/50 group-hover:text-primary-foreground transition-colors" />
+              </div>
+
+              {/* Bottom accent line */}
+              <div className="absolute bottom-0 left-0 w-0 h-1 bg-primary group-hover:w-full transition-all duration-500" />
+            </div>
+          ))}
+        </div>
+
+        {/* Regular Projects - Smaller Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {regularProjects.map((project, index) => (
+            <div
+              key={index}
+              className="group relative overflow-hidden border border-border hover:border-primary transition-all duration-500 bg-background"
+            >
+              {/* Image */}
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+
+                {/* Quick info on image */}
+                <div className="absolute top-3 left-3 flex items-center gap-1.5 text-white/80">
+                  <MapPin className="w-3.5 h-3.5 text-primary" />
+                  <span className="text-xs font-medium">{project.location}</span>
+                </div>
+
+                {/* Year badge */}
+                <div className="absolute top-3 right-3 px-2 py-1 bg-black/50 backdrop-blur-sm">
+                  <span className="text-xs text-white/80">{project.year}</span>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-4">
+                <h3 className="font-heading text-lg text-foreground uppercase tracking-wide mb-2 group-hover:text-primary transition-colors line-clamp-1">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed line-clamp-2">
                   {t(project.descKey)}
                 </p>
               </div>
+
+              {/* Bottom accent line */}
+              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-500" />
             </div>
           ))}
         </div>

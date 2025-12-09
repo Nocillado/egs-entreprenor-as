@@ -19,8 +19,9 @@ const translations: Translations = {
   contact: { no: 'Kontakt', en: 'Contact' },
   
   // Hero
-  heroTitle: { no: 'Kvalitet i hvert prosjekt', en: 'Quality in Every Project' },
-  heroSubtitle: { no: 'Din pålitelige partner for grunnarbeid og anleggsvirksomhet i Hallingdal og Østlandet', en: 'Your reliable partner for groundwork and construction in Hallingdal and Eastern Norway' },
+  heroTitle: { no: 'Grunnarbeid &', en: 'Groundwork &' },
+  heroHighlight: { no: 'Anleggstjenester', en: 'Construction Services' },
+  heroSubtitle: { no: 'Din pålitelige partner for grunnarbeid og anleggsvirksomhet i Hallingdal og Østlandet. Vi leverer kvalitet i hvert prosjekt.', en: 'Your reliable partner for groundwork and construction in Hallingdal and Eastern Norway. We deliver quality in every project.' },
   contactUs: { no: 'Kontakt oss', en: 'Contact Us' },
   ourServices: { no: 'Våre tjenester', en: 'Our Services' },
   
@@ -50,15 +51,16 @@ const translations: Translations = {
   
   // Machinery
   machineryTitle: { no: 'Maskinpark', en: 'Machinery' },
+  machineryMore: { no: '+ flere maskiner og utstyr tilgjengelig for alle typer prosjekter', en: '+ more machines and equipment available for all types of projects' },
   
   // Projects
   projectsTitle: { no: 'Prosjekter', en: 'Projects' },
-  projectDesc1: { no: 'Hovedentreprenør for grunnarbeid og betongarbeider, samt anlegging av 4 km gang/sykkelvei og vann/avløp for leilighetsprosjekt på Nesodden', en: 'Main contractor for groundwork and concrete work, as well as construction of 4 km walking/cycling path and water/sewage for apartment project at Nesodden' },
-  projectDesc2: { no: 'Underentreprenør på grunnarbeid for leilighetsprosjekt Geilo', en: 'Subcontractor for groundwork on apartment project Geilo' },
-  projectDesc3: { no: 'Underentreprenør på grunnarbeid for leilighetsprosjekt på Geilo', en: 'Subcontractor for groundwork on apartment project at Geilo' },
-  projectDesc4: { no: 'Hovedentreprenør på grunnarbeid for leilighetsprosjekt på Geilo', en: 'Main contractor for groundwork on apartment project at Geilo' },
-  projectDesc5: { no: 'Hovedentreprenør for grunnarbeid, tomteklargjøring, VA og veier for eiendomsprosjekt på Geilo', en: 'Main contractor for groundwork, site preparation, water/sewage and roads for property project at Geilo' },
-  projectDesc6: { no: 'Hyttetomter, grøftearbeid, og andre oppdrag', en: 'Cabin plots, trenching work, and other assignments' },
+  projectDesc1: { no: 'Totalentreprise for rekkehusprosjekt med grunnarbeid, VA og infrastruktur', en: 'Turnkey contract for row house project with groundwork, water/sewage and infrastructure' },
+  projectDesc2: { no: 'Boligutvikling med flermannsboliger - grunnarbeid og infrastruktur', en: 'Residential development with multi-unit housing - groundwork and infrastructure' },
+  projectDesc3: { no: 'Bolig- og næringsprosjekt med komplett grunnarbeid og VA', en: 'Residential and commercial project with complete groundwork and water/sewage' },
+  projectDesc4: { no: 'Riving og bygging av enebolig og tre tomannsboliger', en: 'Demolition and construction of single-family home and three duplex units' },
+  projectDesc5: { no: 'Nybygg av moderne eneboliger med tomteklargjøring og infrastruktur', en: 'New construction of modern single-family homes with site preparation and infrastructure' },
+  projectDesc6: { no: 'Nybygg enebolig med dobbeltgarasje - komplett grunnarbeid', en: 'New single-family home with double garage - complete groundwork' },
   
   // Contact
   contactTitle: { no: 'Ønsker du å komme i kontakt med oss?', en: 'Want to get in touch with us?' },
@@ -66,11 +68,34 @@ const translations: Translations = {
   contactPersons: { no: 'Kontaktpersoner', en: 'Contact Persons' },
   dailyManager: { no: 'Daglig leder', en: 'Managing Director' },
   projectManager: { no: 'Prosjektleder', en: 'Project Manager' },
+  contactInfo: { no: 'Kontaktinformasjon', en: 'Contact Information' },
+  readyToStart: { no: 'Klar for å starte?', en: 'Ready to start?' },
+  contactCta: { no: 'Ta kontakt i dag for en uforpliktende prat om ditt prosjekt.', en: 'Get in touch today for a non-binding chat about your project.' },
+  sendEmail: { no: 'Send e-post', en: 'Send Email' },
+  norway: { no: 'Norge', en: 'Norway' },
+  getDirections: { no: 'Veibeskrivelse', en: 'Get Directions' },
   
+  // Partners
+  partnersLabel: { no: 'Samarbeid', en: 'Partnership' },
+  partnersTitle: { no: 'Våre Partnere', en: 'Our Partners' },
+  partnersSubtitle: { no: 'Vi samarbeider med ledende aktører i regionen.', en: 'We collaborate with leading partners in the region.' },
+  partnerSkiGeiloTitle: { no: 'SkiGeilo', en: 'SkiGeilo' },
+  partnerSkiGeiloDesc: { no: 'Familievennlig skidestinasjon i Hallingdal med alpinbakker, aktiviteter og overnatting.', en: 'Family-friendly ski destination in Hallingdal with alpine slopes, activities and accommodation.' },
+  partnerZeppelinTitle: { no: 'Zeppelin CAT', en: 'Zeppelin CAT' },
+  partnerZeppelinDesc: { no: 'Norsk forhandler av Cat anleggsmaskiner, gravemaskiner og utstyr for bygg og anlegg.', en: 'Norwegian dealer of Cat construction machinery, excavators and equipment for construction.' },
+  partnerMerkantilTitle: { no: 'Merkantilbygg AS', en: 'Merkantilbygg AS' },
+  partnerMerkantilDesc: { no: 'Eiendomsselskap med fokus på utvikling, bolig og næring i Oslo-regionen og Geilo.', en: 'Real estate company focused on development, residential and commercial properties in Oslo region and Geilo.' },
+  partnerNBFTitle: { no: 'Norges Bilsportforbund', en: 'Norwegian Motorsport Federation' },
+  partnerNBFDesc: { no: 'Stolt sponsor av Rallycross Junior og Fair Race Stipend for unge motorsporttalenter.', en: 'Proud sponsor of Rallycross Junior and Fair Race Scholarship for young motorsport talents.' },
+  readMore: { no: 'Les mer', en: 'Read More' },
+
   // Footer
   footerQuote: { no: 'Vi har god kompetanse, arbeidsstolthet og ansvarsbevissthet. Det viktigste for oss er å få til gode prosjekter med fornøyde kunder og et solid resultat.', en: 'We have good expertise, work pride and sense of responsibility. The most important thing for us is to achieve good projects with satisfied customers and solid results.' },
-  followUs: { no: 'Følg oss på Facebook eller Instagram for oppdateringer og flere bilder!', en: 'Follow us on Facebook or Instagram for updates and more photos!' },
-  
+  followUs: { no: 'Følg oss', en: 'Follow Us' },
+  quickLinks: { no: 'Snarveier', en: 'Quick Links' },
+  footerTagline: { no: 'Din pålitelige partner for grunnarbeid og anleggsvirksomhet', en: 'Your reliable partner for groundwork and construction' },
+  allRightsReserved: { no: 'Alle rettigheter reservert.', en: 'All rights reserved.' },
+
   // Language
   language: { no: 'NO', en: 'EN' },
 };

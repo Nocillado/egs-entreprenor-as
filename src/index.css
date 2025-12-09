@@ -2,53 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap');
-
 @layer base {
   :root {
-    --background: 0 0% 10%;
-    --foreground: 0 0% 95%;
+    /* Warm Earthy Tones - Construction inspired */
+    --background: 20 18% 8%;
+    --foreground: 36 33% 94%;
 
-    --card: 0 0% 14%;
-    --card-foreground: 0 0% 95%;
+    --card: 20 15% 11%;
+    --card-foreground: 36 33% 94%;
 
-    --popover: 0 0% 14%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 20 15% 11%;
+    --popover-foreground: 36 33% 94%;
 
-    --primary: 25 95% 53%;
+    /* Primary Orange - Matching logo color (#E87722) */
+    --primary: 24 81% 53%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 18%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 20 12% 14%;
+    --secondary-foreground: 36 33% 94%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 20 10% 18%;
+    --muted-foreground: 30 6% 50%;
 
-    --accent: 25 95% 53%;
+    --accent: 28 80% 38%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 22%;
-    --input: 0 0% 22%;
-    --ring: 25 95% 53%;
+    --border: 20 10% 18%;
+    --input: 20 10% 18%;
+    --ring: 24 81% 53%;
 
-    --radius: 0.5rem;
+    --radius: 0.25rem;
 
     /* Custom colors */
-    --orange-glow: 25 95% 53%;
-    --dark-surface: 0 0% 12%;
-    --darker-surface: 0 0% 8%;
-
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 25 95% 53%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 18%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 0 0% 22%;
-    --sidebar-ring: 25 95% 53%;
+    --orange-glow: 24 81% 53%;
+    --dark-surface: 20 15% 11%;
+    --darker-surface: 20 18% 8%;
   }
 }
 
@@ -58,29 +49,73 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Open Sans', sans-serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.05em;
   }
 }
 
 @layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-orange-400;
+  /* Industrial accent line */
+  .accent-line {
+    @apply w-16 h-1 bg-primary;
   }
 
-  .section-divider {
-    @apply w-16 h-1 bg-primary mx-auto mt-4 mb-8;
+  /* Section label styling */
+  .section-label {
+    @apply text-primary font-heading text-sm tracking-[0.2em] uppercase mb-2;
   }
 
-  .card-hover {
-    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/10;
+  /* Section title styling */
+  .section-title {
+    @apply font-heading text-4xl md:text-5xl lg:text-6xl uppercase tracking-wide text-foreground;
+  }
+
+  /* Card hover effect */
+  .card-industrial {
+    @apply bg-card border border-border transition-all duration-300;
+  }
+
+  .card-industrial:hover {
+    @apply border-primary -translate-y-1;
+  }
+
+  /* Button industrial style */
+  .btn-industrial {
+    @apply font-heading text-sm tracking-[0.1em] uppercase px-8 py-4 transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply btn-industrial bg-primary text-primary-foreground hover:bg-primary/90 hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply btn-industrial bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground;
   }
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for industrial feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary));
 }

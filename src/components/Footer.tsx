@@ -1,62 +1,127 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Facebook, Instagram } from 'lucide-react';
+import { Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="py-16 bg-background border-t border-border">
-      <div className="container mx-auto px-4">
-        {/* Social CTA */}
-        <div className="text-center mb-12">
-          <p className="text-foreground italic font-medium text-lg">
-            {t('followUs').split('Facebook')[0]}
-            <a href="https://facebook.com" className="underline text-primary hover:text-primary/80">Facebook</a>
-            {t('followUs').split('Facebook')[1].split('Instagram')[0]}
-            <a href="https://instagram.com" className="underline text-primary hover:text-primary/80">Instagram</a>
-            {t('followUs').split('Instagram')[1]}
-          </p>
-        </div>
-
-        {/* Quote */}
-        <div className="max-w-4xl mx-auto text-center mb-12">
-          <p className="text-foreground italic text-xl leading-relaxed font-medium">
-            "{t('footerQuote')}"
-          </p>
-        </div>
-
-        {/* Logo and Social */}
-        <div className="flex flex-col items-center gap-6">
-          <div className="font-heading font-bold text-6xl text-muted-foreground/20">
-            EGS
-          </div>
-          <p className="text-muted-foreground/50 text-sm tracking-widest uppercase">
-            Entreprenør AS
-          </p>
-          <div className="flex gap-4">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-primary/80 transition-colors"
-            >
-              <Facebook className="w-5 h-5 text-primary-foreground" />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-primary/80 transition-colors"
-            >
-              <Instagram className="w-5 h-5 text-primary-foreground" />
-            </a>
+    <footer className="bg-card border-t border-border">
+      {/* Quote Section */}
+      <div className="py-16 border-b border-border">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="accent-line mx-auto mb-8" />
+            <blockquote className="font-heading text-2xl md:text-3xl text-foreground uppercase tracking-wide leading-relaxed">
+              "{t('footerQuote')}"
+            </blockquote>
           </div>
         </div>
+      </div>
 
-        <div className="text-center mt-12 pt-8 border-t border-border">
-          <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} EGS Entreprenør AS. All rights reserved.
-          </p>
+      {/* Main Footer */}
+      <div className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-12 items-start">
+            {/* Logo */}
+            <div className="text-center md:text-left">
+              <img
+                src="/Logo/1.webp"
+                alt="EGS Entreprenør AS"
+                className="h-16 w-auto mx-auto md:mx-0 mb-4 opacity-80"
+              />
+              <p className="text-muted-foreground text-sm">
+                {t('footerTagline')}
+              </p>
+            </div>
+
+            {/* Quick Links */}
+            <div className="text-center md:text-left">
+              <p className="text-sm text-muted-foreground mb-4 uppercase tracking-wider">
+                {t('quickLinks')}
+              </p>
+              <nav className="flex flex-col gap-2">
+                <a href="#home" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                  {t('home')}
+                </a>
+                <a href="#about" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                  {t('about')}
+                </a>
+                <a href="#services" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                  {t('services')}
+                </a>
+                <a href="#machinery" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                  {t('machinery')}
+                </a>
+                <a href="#projects" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                  {t('projects')}
+                </a>
+                <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                  {t('contact')}
+                </a>
+              </nav>
+            </div>
+
+            {/* Quick Contact */}
+            <div className="text-center md:text-left space-y-3">
+              <p className="text-sm text-muted-foreground mb-4 uppercase tracking-wider">
+                {t('contact')}
+              </p>
+              <a
+                href="mailto:roar@egsas.no"
+                className="flex items-center justify-center md:justify-start gap-2 text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Mail className="w-4 h-4 text-primary" />
+                roar@egsas.no
+              </a>
+              <a
+                href="tel:+4797145022"
+                className="flex items-center justify-center md:justify-start gap-2 text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Phone className="w-4 h-4 text-primary" />
+                971 45 022
+              </a>
+              <div className="flex items-center justify-center md:justify-start gap-2 text-muted-foreground">
+                <MapPin className="w-4 h-4 text-primary" />
+                Sando, 3570 ÅL
+              </div>
+            </div>
+
+            {/* Social */}
+            <div className="text-center md:text-right">
+              <p className="text-sm text-muted-foreground mb-4 uppercase tracking-wider">
+                {t('followUs')}
+              </p>
+              <div className="flex gap-3 justify-center md:justify-end">
+                <a
+                  href="https://www.facebook.com/egsentreprenor"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-border hover:bg-primary flex items-center justify-center transition-colors group"
+                >
+                  <Facebook className="w-5 h-5 text-muted-foreground group-hover:text-primary-foreground transition-colors" />
+                </a>
+                <a
+                  href="https://www.instagram.com/egsentreprenor/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-border hover:bg-primary flex items-center justify-center transition-colors group"
+                >
+                  <Instagram className="w-5 h-5 text-muted-foreground group-hover:text-primary-foreground transition-colors" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Copyright */}
+      <div className="py-6 border-t border-border">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 text-sm text-muted-foreground">
+            <p>
+              © {new Date().getFullYear()} EGS Entreprenør AS. {t('allRightsReserved')}
+            </p>
+          </div>
         </div>
       </div>
     </footer>
